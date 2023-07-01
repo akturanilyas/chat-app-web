@@ -1,0 +1,5 @@
+export const FORM_RULE_MESSAGE = {
+  REQUIRED: {
+    required: 'GLOBAL.FORM_ELEMENTS.ERRORS.REQUIRED.DEFAULT',
+  },
+};

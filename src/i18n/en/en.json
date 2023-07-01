@@ -1,0 +1,19 @@
+{
+  "GLOBAL": {
+    "TEST": "Test i18n",
+    "FORM_ELEMENTS": {
+      "LABELS": {
+        "USERNAME": "Username",
+        "PASSWORD": "Password"
+      },
+      "ERRORS": {
+        "REQUIRED": {
+          "DEFAULT": "Please fill this area."
+        }
+      }
+    },
+    "BUTTONS": {
+      "LOGIN": "Login"
+    }
+  }
+}
