@@ -1,9 +1,11 @@
 {
   "GLOBAL": {
-    "TEST": "Test i18n",
     "FORM_ELEMENTS": {
       "LABELS": {
         "USERNAME": "Username",
+        "NAME": "Name",
+        "SURNAME": "Surname",
+        "EMAIL": "e-Mail",
         "PASSWORD": "Password"
       },
       "ERRORS": {
@@ -13,7 +15,9 @@
       }
     },
     "BUTTONS": {
-      "LOGIN": "Login"
+      "LOGIN": "Login",
+      "DONT_HAVE_ACCOUNT": "Don't Have an Account? Register",
+      "ALREADY_HAVE_ACCOUNT": "Already Have an Account? Login"
     }
   }
 }

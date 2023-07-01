@@ -1,7 +1,8 @@
 import { createElement } from 'react';
 import { PUBLIC_PATH } from '../constants/publicPath.constant';
 import { IRoute } from './route.interface';
-import Login from '../components/auth/Login';
+import Login from '../views/public/auth/Login';
+import Register from '../views/public/auth/Register';
 
 const publicRoute: Array<IRoute> = [
   {
@@ -10,11 +11,7 @@ const publicRoute: Array<IRoute> = [
   },
   {
     path: PUBLIC_PATH.REGISTER,
-    element: createElement(Login),
-  },
-  {
-    path: PUBLIC_PATH.PASSWORD_RESET,
-    element: createElement(Login),
+    element: createElement(Register),
   },
 ];
 
