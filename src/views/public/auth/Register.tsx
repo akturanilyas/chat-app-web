@@ -6,14 +6,19 @@ import { useRegisterMutation } from '../../../api/services/auth/authService';
 import RegisterForm from '../../../components/forms/auth/RegisterForm';
 import BaseLink from '../../../components/common/base-link/BaseLink';
 import { PUBLIC_PATH } from '../../../constants/publicPath.constant';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const form = useForm();
 
+  const navigate = useNavigate();
+
   const [register] = useRegisterMutation();
 
   const registerCallback = (payload: Record<string, unknown>) => {
-    register({ body: payload });
+    register({ body: payload })
+      .unwrap()
+      .then(() => navigate(PUBLIC_PATH.LOGIN));
   };
 
   return (

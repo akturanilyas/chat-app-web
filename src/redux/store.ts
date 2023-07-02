@@ -19,7 +19,7 @@ import { modalSlice } from './slices/modalSlice';
 import { resultSlice } from './slices/resultSlice';
 
 const persistConfig = {
-  key: 'buro',
+  key: 'chat',
   version: 1,
   storage,
   whitelist: ['main'],

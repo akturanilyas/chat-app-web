@@ -10,7 +10,7 @@ export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation<Auth, Post<LoginBodyRequest>>({
       query: ({ body }) => ({
-        url: ENDPOINT.LOGIN,
+        url: `${ENDPOINT.AUTH}${ENDPOINT.LOGIN}`,
         method: ApiServiceMethod.POST,
         data: { body },
       }),
@@ -24,7 +24,7 @@ export const authApi = baseApi.injectEndpoints({
     }),
     register: builder.mutation<Auth, Post<RegisterBodyRequest>>({
       query: ({ body }) => ({
-        url: ENDPOINT.REGISTER,
+        url: `${ENDPOINT.AUTH}${ENDPOINT.REGISTER}`,
         method: ApiServiceMethod.POST,
         data: { body },
       }),
