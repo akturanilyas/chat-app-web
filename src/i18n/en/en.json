@@ -3,8 +3,8 @@
     "FORM_ELEMENTS": {
       "LABELS": {
         "USERNAME": "Username",
-        "NAME": "Name",
-        "SURNAME": "Surname",
+        "FIRST_NAME": "First Name",
+        "LAST_NAME": "Last Name",
         "EMAIL": "e-Mail",
         "PASSWORD": "Password"
       },

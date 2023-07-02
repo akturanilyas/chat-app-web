@@ -6,14 +6,20 @@ import BaseButton from '../../../components/common/button/BaseButton';
 import { useLoginMutation } from '../../../api/services/auth/authService';
 import BaseLink from '../../../components/common/base-link/BaseLink';
 import { PUBLIC_PATH } from '../../../constants/publicPath.constant';
+import { useLazySelfQuery } from '../../../api/services/user/userService';
 
 const Login = () => {
   const form = useForm();
 
   const [login] = useLoginMutation();
+  const [getSelf] = useLazySelfQuery();
 
   const loginCallback = (payload: Record<string, unknown>) => {
-    login({ body: payload });
+    login({ body: payload })
+      .unwrap()
+      .then(() => {
+        getSelf();
+      });
   };
 
   return (

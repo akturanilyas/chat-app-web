@@ -12,16 +12,16 @@ const RegisterForm: FC<LoginFormProps> = (props) => {
     <BaseView className={className}>
       <TextInput
         form={form}
-        name={'name'}
-        label={'GLOBAL.FORM_ELEMENTS.LABELS.NAME'}
+        name={'first_name'}
+        label={'GLOBAL.FORM_ELEMENTS.LABELS.FIRST_NAME'}
         rules={FORM_RULE.REQUIRED}
         errorMessage={FORM_RULE_MESSAGE.REQUIRED}
       />
 
       <TextInput
         form={form}
-        name={'surname'}
-        label={'GLOBAL.FORM_ELEMENTS.LABELS.SURNAME'}
+        name={'last_name'}
+        label={'GLOBAL.FORM_ELEMENTS.LABELS.LAST_NAME'}
         rules={FORM_RULE.REQUIRED}
         errorMessage={FORM_RULE_MESSAGE.REQUIRED}
       />
