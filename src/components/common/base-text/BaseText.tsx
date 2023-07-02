@@ -12,8 +12,6 @@ const BaseText: FC<TextProps> = (props) => {
     ${className || ''}
   `);
 
-  console.log(translate({ value: text, options }) || text);
-
   return (
     <span {...props} className={classes}>
       {translate({ value: text, options }) || text}

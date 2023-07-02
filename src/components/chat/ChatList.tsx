@@ -7,30 +7,35 @@ import ChatItem from './ChatItem';
 
 const messages = [
   {
+    id: '1',
     name: 'name',
     image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
     message: 'messagemessagemessagemessagemessagemessagemessage',
     time: '22:04',
   },
   {
+    id: '2',
     name: 'name',
     image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
     time: '22:04',
     message: 'messagemessagemessagemessagemessagemessagemessage',
   },
   {
+    id: '3',
     name: 'name',
     image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
     time: '22:04',
     message: 'messagemessagemessagemessagemessagemessagemessage',
   },
   {
+    id: '4',
     name: 'name',
     image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
     time: '22:04',
     message: 'messagemessagemessagemessagemessagemessagemessage',
   },
   {
+    id: '5',
     name: 'name',
     image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
     message: 'messagemessagemessagemessagemessagemessagemessage',

@@ -1,10 +1,17 @@
 import React, { FC } from 'react';
 import BaseView from '../../../components/common/base-view/BaseView';
 import BaseText from '../../../components/common/base-text/BaseText';
+import ChatList from '../../../components/chat/ChatList';
+import Header from '../../../components/header/Header';
+import MessageBox from '../../../components/chat/ChatBox';
 
 const Chat: FC = () => (
-  <BaseView>
-    <BaseText text={'asdas'} />
+  <BaseView className={'flex-row w-full'}>
+    <ChatList />
+    <BaseView className={'w-full flex-1 min-h-screen min-w-0 relative'}>
+      <Header />
+      <MessageBox />
+    </BaseView>
   </BaseView>
 );
 

@@ -6,11 +6,15 @@ import ImageView from '../common/base-image/ImageView';
 import TimeText from '../common/time-text/TimeText';
 
 const ChatItem: FC<ChatItemProps> = (props) => {
-  const { name, message, image, time } = props;
+  const { id, name, message, image, time } = props;
+
+  const chatItemClick = () => {
+    //
+  };
 
   return (
     <BaseView>
-      <BaseView className={'flex flex-row'}>
+      <BaseView className={'flex flex-row'} onClick={() => chatItemClick()}>
         <ImageView image={image} className={'w-16 h-16'} />
 
         <BaseView className={'w-full px-2 overflow-x-hidden'}>
