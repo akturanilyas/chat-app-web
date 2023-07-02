@@ -1,24 +1,22 @@
 import React, { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { translate } from '../../../utils/translateUtil';
-import { TextProps } from './BaseText.interface';
+import { TimeTextProps } from './TimeText.interface';
 
-const BaseText: FC<TextProps> = (props) => {
+const TimeText: FC<TimeTextProps> = (props) => {
   const { text, options, className } = props;
 
   const classes = twMerge(`
+    text-sm
     text-slate
     dark:text-slate-200
     ${className || ''}
   `);
 
-  console.log(translate({ value: text, options }) || text);
-
   return (
     <span {...props} className={classes}>
-      {translate({ value: text, options }) || text}
+      {text}
     </span>
   );
 };
 
-export default BaseText;
+export default TimeText;

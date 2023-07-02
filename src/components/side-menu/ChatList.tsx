@@ -1,10 +1,42 @@
 import React from 'react';
-import SideMenuItems from '../../assets/predefined-data/sideMenuItems';
 import { MAIN_PATH } from '../../constants/mainPath.constant';
 import BaseLink from '../common/base-link/BaseLink';
 import BaseView from '../common/base-view/BaseView';
 import Logo from '../header/Logo';
-import SideMenuItem from './SideMenuItem';
+import ChatItem from './ChatItem';
+
+const messages = [
+  {
+    name: 'name',
+    image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+    message: 'messagemessagemessagemessagemessagemessagemessage',
+    time: '22:04',
+  },
+  {
+    name: 'name',
+    image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+    time: '22:04',
+    message: 'messagemessagemessagemessagemessagemessagemessage',
+  },
+  {
+    name: 'name',
+    image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+    time: '22:04',
+    message: 'messagemessagemessagemessagemessagemessagemessage',
+  },
+  {
+    name: 'name',
+    image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+    time: '22:04',
+    message: 'messagemessagemessagemessagemessagemessagemessage',
+  },
+  {
+    name: 'name',
+    image: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+    message: 'messagemessagemessagemessagemessagemessagemessage',
+    time: '22:21',
+  },
+];
 
 const ChatList = () => {
   const chatListClasses = `
@@ -20,7 +52,7 @@ const ChatList = () => {
 
   return (
     <BaseView className={chatListClasses}>
-      <BaseView>
+      <BaseView className={'w-full'}>
         <BaseView className={'sticky top-0 left-0 z-10'}>
           <BaseLink to={MAIN_PATH.DASHBOARD}>
             <Logo
@@ -37,9 +69,9 @@ const ChatList = () => {
             />
           </BaseLink>
         </BaseView>
-        <BaseView className={'my-6 mx-4 flex-1'}>
-          {SideMenuItems.map((item, index) => (
-            <SideMenuItem key={index} {...item} />
+        <BaseView className={'my-6 flex-1 w-full px-2'}>
+          {messages.map((item, index) => (
+            <ChatItem key={index} {...item} />
           ))}
         </BaseView>
       </BaseView>
