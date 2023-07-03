@@ -27,28 +27,21 @@ const messages = [
     time: '22:10',
   },
   {
-    id: '4',
+    id: '3',
     message: 'message',
     sender: 'sender',
     receiver: 'receiver',
     time: '22:10',
   },
   {
-    id: '4',
+    id: '3',
     message: 'message',
     sender: 'sender',
     receiver: 'receiver',
     time: '22:10',
   },
   {
-    id: '1',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '2',
+    id: '3',
     message: 'message',
     sender: 'sender',
     receiver: 'receiver',
@@ -70,182 +63,7 @@ const messages = [
   },
   {
     id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '1',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '2',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '3',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '1',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '2',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '3',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '1',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '2',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '3',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '1',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '2',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '3',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '1',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '2',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '3',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
-    sender: 'sender',
-    receiver: 'receiver',
-    time: '22:10',
-  },
-  {
-    id: '4',
-    message: 'message',
+    message: 'messasssaaaaaaa gemessa sssaaaaaaageaklsmdlkm aklsmdkl amsdlkamskdmalksmd klasmlkmas',
     sender: 'sender',
     receiver: 'receiver',
     time: '22:10',
@@ -256,9 +74,9 @@ const MessageBox = () => {
   const form = useForm();
 
   return (
-    <BaseView className={'max-h-[90vh]'}>
-      <BaseView className={'overflow-y-clip'}>
-        <BaseView className={'overflow-y-scroll gap-4'}>
+    <BaseView className={'h-[90vh]'}>
+      <BaseView className={'overflow-y-clip flex-grow'}>
+        <BaseView className={'overflow-y-scroll gap-4 flex-1'}>
           {messages.map((message) => (
             <Message key={message.id} {...message} />
           ))}
