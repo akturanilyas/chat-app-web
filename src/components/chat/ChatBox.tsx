@@ -1,17 +1,274 @@
 import React from 'react';
-import { MAIN_PATH } from '../../constants/mainPath.constant';
-import BaseLink from '../common/base-link/BaseLink';
 import BaseView from '../common/base-view/BaseView';
-import Logo from '../header/Logo';
-import ChatItem from './ChatItem';
-import BaseText from '../common/base-text/BaseText';
+import TextInput from '../inputs/TextInput';
+import { useForm } from 'react-hook-form';
+import Message from '../message/Message';
 
-const MessageBox = () => (
-    <BaseView className={''}>
-      <BaseView className={'w-full'}>
-        <BaseText text={'maksdm'}/>
+const messages = [
+  {
+    id: '1',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '2',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '3',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '1',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '2',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '3',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '1',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '2',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '3',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '1',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '2',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '3',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '1',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '2',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '3',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '1',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '2',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '3',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '1',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '2',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '3',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+  {
+    id: '4',
+    message: 'message',
+    sender: 'sender',
+    receiver: 'receiver',
+    time: '22:10',
+  },
+];
+
+const MessageBox = () => {
+  const form = useForm();
+
+  return (
+    <BaseView className={'max-h-[90vh]'}>
+      <BaseView className={'overflow-y-clip'}>
+        <BaseView className={'overflow-y-scroll gap-4'}>
+          {messages.map((message) => (
+            <Message key={message.id} {...message} />
+          ))}
+        </BaseView>
+        <BaseView>
+          <TextInput form={form} name={'message'} />
+        </BaseView>
       </BaseView>
     </BaseView>
   );
+};
 
 export default MessageBox;

@@ -127,3 +127,6 @@ dist
 
 # Ide files
 .idea
+
+tailwind.css
+src/tailwind.css
