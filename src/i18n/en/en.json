@@ -6,6 +6,7 @@
         "FIRST_NAME": "First Name",
         "LAST_NAME": "Last Name",
         "EMAIL": "e-Mail",
+        "ADD_FRIENDS": "e-Mail",
         "PASSWORD": "Password"
       },
       "ERRORS": {
@@ -14,10 +15,19 @@
         }
       }
     },
+    "COMPONENTS": {
+      "MODALS": {
+        "ADD_FRIEND": {
+          "TITLE": "Add Friends"
+        }
+      }
+    },
     "BUTTONS": {
       "LOGIN": "Login",
       "DONT_HAVE_ACCOUNT": "Don't Have an Account? Register",
-      "ALREADY_HAVE_ACCOUNT": "Already Have an Account? Login"
+      "ALREADY_HAVE_ACCOUNT": "Already Have an Account? Login",
+      "SUBMIT": "Submit",
+      "CANCEL": "Cancel"
     }
   }
 }

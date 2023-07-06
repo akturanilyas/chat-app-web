@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseView from '../../../components/common/base-view/BaseView';
 import { useForm } from 'react-hook-form';
-import BaseButton from '../../../components/common/button/BaseButton';
+import BaseButton from '../../../components/common/base-button/BaseButton';
 import { useRegisterMutation } from '../../../api/services/auth/authService';
 import RegisterForm from '../../../components/forms/auth/RegisterForm';
 import BaseLink from '../../../components/common/base-link/BaseLink';

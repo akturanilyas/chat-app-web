@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { BaseLabelProps } from './BaseLabel.interface';
-import BaseText from '../common/base-text/BaseText';
-import { translate } from '../../utils/translateUtil';
+import BaseText from '../base-text/BaseText';
+import { translate } from '../../../utils/translateUtil';
 
 const BaseLabel: FC<BaseLabelProps> = (props) => {
   const { name, text, className, htmlFor, isRequired } = props;

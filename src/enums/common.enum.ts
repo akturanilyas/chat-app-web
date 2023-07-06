@@ -13,3 +13,8 @@ export enum InputType {
   FILE = 'file',
   TEXTAREA = 'textarea',
 }
+
+export enum SelectCore {
+  REACT_SELECT = 'reactSelect',
+  CREATABLE_SELECT = 'creatableSelect',
+}

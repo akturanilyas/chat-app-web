@@ -10,14 +10,16 @@ export interface BaseModalHeaderProps {
 
 export interface ModalLayoutProps {
   header: BaseModalHeaderProps;
-  footer: Array<{
-    label?: string;
-    className?: string;
-    textClassName?: string;
-    disabled?: boolean;
-    icon?: CustomIconProviderProps;
-    onClick: () => void;
-  }>;
+  footer: {
+    buttons: Array<{
+      label?: string;
+      className?: string;
+      textClassName?: string;
+      disabled?: boolean;
+      icon?: CustomIconProviderProps;
+      onClick: () => void;
+    }>;
+  };
   children: ReactElement;
   isCancellable?: boolean;
   isOutsideClick?: boolean;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { TextButtonProps } from './TextButton.interface';
-import BaseButton from './BaseButton';
+import BaseButton from '../base-button/BaseButton';
 
 const TextButton: FC<TextButtonProps> = (props) => {
   const classes = twMerge(`
