@@ -7,7 +7,8 @@
         "LAST_NAME": "Last Name",
         "EMAIL": "e-Mail",
         "ADD_FRIENDS": "e-Mail",
-        "PASSWORD": "Password"
+        "PASSWORD": "Password",
+        "SEARCH": "Search"
       },
       "ERRORS": {
         "REQUIRED": {
