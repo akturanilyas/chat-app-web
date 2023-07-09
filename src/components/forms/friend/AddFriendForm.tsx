@@ -8,7 +8,7 @@ const AddFriendForm: FC<AddFriendFormProps> = (props) => {
 
   return (
     <BaseView className={className}>
-      <TextInput form={form} name={'name'} label={'GLOBAL.FORM_ELEMENTS.LABELS.SEARCH'} />
+      <TextInput form={form} name={'search'} label={'GLOBAL.FORM_ELEMENTS.LABELS.SEARCH'} />
     </BaseView>
   );
 };

@@ -21,7 +21,7 @@ const AddFriendModal: FC<ModalProps> = () => {
     <ModalLayout {...modalProps}>
       <>
         <AddFriendForm form={form} />
-        <AddFriendList users={[]} />
+        <AddFriendList search={form.watch('search')} />
       </>
     </ModalLayout>
   );

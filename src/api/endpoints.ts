@@ -4,4 +4,5 @@ export const ENDPOINT = {
   REGISTER: '/register',
   REFRESH_TOKEN: 'refresh-token',
   SELF: '/self',
+  SEARCH_USERS: '/search-users',
 };
