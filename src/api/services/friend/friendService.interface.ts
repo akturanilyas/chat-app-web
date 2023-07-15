@@ -3,11 +3,11 @@ export interface SearchUsersQueryParams {
 }
 
 export interface AddFriendBodyRequest {
-  user_id: string;
+  //
 }
 
 export interface RemoveFriendBodyRequest {
-  user_id: string;
+  //
 }
 
 export interface AcceptFriendBodyRequest {

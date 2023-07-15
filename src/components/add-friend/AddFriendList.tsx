@@ -14,7 +14,7 @@ const AddFriendList: FC<AddFriendListProps> = ({ search }) => {
 
   useDebounce(
     () => {
-      users && getUsers({ query: { name: search } });
+      users && search !== undefined && getUsers({ query: { name: search } });
     },
     500,
     [search],

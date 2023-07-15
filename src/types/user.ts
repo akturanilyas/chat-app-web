@@ -1,3 +1,5 @@
+import { FriendStatus } from '../enums/FriendStatus.enum';
+
 export type User = {
   first_name: string;
   last_name: string;
@@ -12,4 +14,5 @@ export type FriendableUser = {
   username: string;
   photo?: string;
   is_friend: boolean;
+  status: FriendStatus;
 };
