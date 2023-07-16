@@ -27,10 +27,33 @@ const AddFriendItem: FC<AddFriendItemProps> = (props) => {
     removeFriendMutation({ body: { user_id: user.id } });
   };
 
-  const classes = twMerge(`
-  ${user.is_friend ? 'bg-red-500' : 'bg-lime-500'}
-  ${user.status === FriendStatus.PENDING || 'disabled'} 
-    `);
+  let button = (
+    <BaseButton
+      className={'bg-lime-500'}
+      icon={{ icon: CUSTOM_ICON.USER_PLUS, iconClassName: 'text-error-100' }}
+    />
+  );
+
+  if (user.is_friend) {
+    button = (
+      <BaseButton
+        className={'bg-red-500'}
+        icon={{ icon: CUSTOM_ICON.USER_MINUS, iconClassName: 'text-error-100' }}
+        onClick={removeFriend}
+      />
+    );
+  }
+
+  if (user.status === FriendStatus.PENDING) {
+    button = (
+      <BaseButton
+        className={'bg-red-500'}
+        icon={{ icon: CUSTOM_ICON.USER_MINUS, iconClassName: 'text-error-100' }}
+        onClick={user.is_friend ? removeFriend : addFriend}
+        disabled={true}
+      />
+    );
+  }
 
   return (
     <BaseView
@@ -43,11 +66,7 @@ const AddFriendItem: FC<AddFriendItemProps> = (props) => {
         <BaseText text={user.full_name} />
       </BaseView>
 
-      <BaseButton
-        className={classes}
-        icon={{ icon: CUSTOM_ICON.PLUS_CIRCLE, iconClassName: 'text-error-100' }}
-        onClick={user.is_friend ? removeFriend : addFriend}
-      />
+      {button}
     </BaseView>
   );
 };
