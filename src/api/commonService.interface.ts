@@ -1,6 +1,6 @@
 export type Post<T> = {
   id?: number | string;
-  body: T | Record<string, unknown>;
+  body?: T | Record<string, unknown>;
   mutateParams?: Record<string, unknown>;
 };
 

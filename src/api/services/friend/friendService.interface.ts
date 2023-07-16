@@ -2,6 +2,10 @@ export interface SearchUsersQueryParams {
   name: string;
 }
 
+export interface FriendRequestQueryParams {
+  name: string;
+}
+
 export interface AddFriendBodyRequest {
   //
 }

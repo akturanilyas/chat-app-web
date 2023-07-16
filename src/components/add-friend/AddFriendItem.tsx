@@ -9,7 +9,6 @@ import {
   useAddFriendMutation,
   useRemoveFriendMutation,
 } from '../../api/services/friend/friendService';
-import { twMerge } from 'tailwind-merge';
 import { FriendStatus } from '../../enums/FriendStatus.enum';
 
 const AddFriendItem: FC<AddFriendItemProps> = (props) => {
@@ -31,6 +30,7 @@ const AddFriendItem: FC<AddFriendItemProps> = (props) => {
     <BaseButton
       className={'bg-lime-500'}
       icon={{ icon: CUSTOM_ICON.USER_PLUS, iconClassName: 'text-error-100' }}
+      onClick={addFriend}
     />
   );
 
@@ -49,7 +49,6 @@ const AddFriendItem: FC<AddFriendItemProps> = (props) => {
       <BaseButton
         className={'bg-red-500'}
         icon={{ icon: CUSTOM_ICON.USER_MINUS, iconClassName: 'text-error-100' }}
-        onClick={user.is_friend ? removeFriend : addFriend}
         disabled={true}
       />
     );

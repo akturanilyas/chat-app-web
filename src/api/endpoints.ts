@@ -6,6 +6,7 @@ export const ENDPOINT = {
   SELF: '/self',
   SEARCH_USERS: '/search-users',
   FRIENDS: '/friends',
+  REQUESTS: '/requests',
   ACCEPT: '/accept',
   REJECT: '/reject',
   REMOVE: '/remove',

@@ -20,6 +20,8 @@
       "MODALS": {
         "ADD_FRIEND": {
           "TITLE": "Add Friends"
+        },"FRIEND_REQUESTS": {
+          "TITLE": "Friend Requests"
         }
       }
     },
