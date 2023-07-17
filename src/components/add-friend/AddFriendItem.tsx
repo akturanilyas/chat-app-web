@@ -9,7 +9,7 @@ import {
   useAddFriendMutation,
   useRemoveFriendMutation,
 } from '../../api/services/friend/friendService';
-import { FriendStatus } from '../../enums/FriendStatus.enum';
+import { FriendStatus } from '../../enums/friendStatus.enum';
 
 const AddFriendItem: FC<AddFriendItemProps> = (props) => {
   const { user } = props;
@@ -44,7 +44,7 @@ const AddFriendItem: FC<AddFriendItemProps> = (props) => {
     );
   }
 
-  if (user.status === FriendStatus.PENDING) {
+  if (user.status === FriendStatus.RECEIVED) {
     button = (
       <BaseButton
         className={'bg-red-500'}

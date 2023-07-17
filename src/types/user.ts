@@ -1,4 +1,4 @@
-import { FriendStatus } from '../enums/FriendStatus.enum';
+import { FriendStatus } from '../enums/friendStatus.enum';
 
 export type User = {
   first_name: string;
