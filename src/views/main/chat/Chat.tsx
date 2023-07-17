@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import BaseView from '../../../components/common/base-view/BaseView';
-import BaseText from '../../../components/common/base-text/BaseText';
 import ChatList from '../../../components/chat/ChatList';
 import Header from '../../../components/header/Header';
 import MessageBox from '../../../components/chat/ChatBox';

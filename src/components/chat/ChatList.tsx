@@ -4,6 +4,11 @@ import BaseLink from '../common/base-link/BaseLink';
 import BaseView from '../common/base-view/BaseView';
 import Logo from '../header/Logo';
 import ChatItem from './ChatItem';
+import TextInput from '../inputs/TextInput';
+import { useForm } from 'react-hook-form';
+import { CUSTOM_ICON } from '../../constants/customIcon.constant';
+import CustomIconProvider from '../../providers/CustomIconProvider';
+import BaseButton from '../common/base-button/BaseButton';
 
 const messages = [
   {
@@ -44,6 +49,7 @@ const messages = [
 ];
 
 const ChatList = () => {
+  const form = useForm();
   const chatListClasses = `
     w-64 h-[100vh] overflow-auto no-scrollbar
     sticky top-0 left-0 z-10
@@ -73,6 +79,15 @@ const ChatList = () => {
             `}
             />
           </BaseLink>
+        </BaseView>
+        <BaseView className={'flex flex-row items-center mt-2'}>
+          <TextInput
+            form={form}
+            name={'search'}
+            className={'mb-0 px-2'}
+            placeholder={'GLOBAL.FORM_ELEMENTS.LABELS.SEARCH'}
+          />
+          <BaseButton icon={{ icon: CUSTOM_ICON.MESSAGE_PLUS }} className={'bg-transparent'} />
         </BaseView>
         <BaseView className={'my-6 flex-1 w-full px-2'}>
           {messages.map((item, index) => (

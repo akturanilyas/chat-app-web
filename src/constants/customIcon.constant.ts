@@ -82,10 +82,10 @@ import {
   Trash,
   Trash2,
   Upload,
-  UserMinus,
-  UserPlus,
   UploadReceipt,
   User,
+  UserMinus,
+  UserPlus,
   Users,
   X,
   XOctagon,
@@ -93,6 +93,7 @@ import {
   ZoomIn,
   ZoomOut,
 } from '../components/icons';
+import MessagePlus from '../components/icons/MessagePlus';
 
 export const CUSTOM_ICON = {
   ADDRESS_PIN: AddressPin,
@@ -152,6 +153,7 @@ export const CUSTOM_ICON = {
   MAIL_OPEN: MailOpen,
   MAXIMIZE: Maximize,
   MENU: Menu,
+  MESSAGE_PLUS: MessagePlus,
   MINUS: Minus,
   MONITOR: Monitor,
   MOON: Moon,
