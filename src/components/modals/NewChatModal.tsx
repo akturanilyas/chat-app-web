@@ -4,8 +4,9 @@ import ModalLayout from '../../layouts/ModalLayout';
 import { ModalProps } from '../../routes/route.interface';
 import SearchForm from '../forms/friend/SearchForm';
 import AddFriendList from '../friend/AddFriendList';
+import FriendList from '../friend/FriendList';
 
-const AddFriendModal: FC<ModalProps> = () => {
+const NewChatModal: FC<ModalProps> = () => {
   const form = useForm({ shouldUnregister: true });
 
   const modalProps = {
@@ -21,10 +22,10 @@ const AddFriendModal: FC<ModalProps> = () => {
     <ModalLayout {...modalProps}>
       <>
         <SearchForm form={form} />
-        <AddFriendList search={form.watch('search')} />
+        <FriendList search={form.watch('search')} />
       </>
     </ModalLayout>
   );
 };
 
-export default AddFriendModal;
+export default NewChatModal;

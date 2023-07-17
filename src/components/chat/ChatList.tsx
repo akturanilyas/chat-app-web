@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MAIN_PATH } from '../../constants/mainPath.constant';
 import BaseLink from '../common/base-link/BaseLink';
 import BaseView from '../common/base-view/BaseView';
@@ -7,8 +7,10 @@ import ChatItem from './ChatItem';
 import TextInput from '../inputs/TextInput';
 import { useForm } from 'react-hook-form';
 import { CUSTOM_ICON } from '../../constants/customIcon.constant';
-import CustomIconProvider from '../../providers/CustomIconProvider';
 import BaseButton from '../common/base-button/BaseButton';
+import { ModalName } from '../../enums/modalName.enum';
+import useModalDispatcher from '../../hooks/useModalDispatcher';
+import eventProvider from '../../providers/EventProvider';
 
 const messages = [
   {
@@ -50,6 +52,8 @@ const messages = [
 
 const ChatList = () => {
   const form = useForm();
+  const { openModal } = useModalDispatcher();
+
   const chatListClasses = `
     w-64 h-[100vh] overflow-auto no-scrollbar
     sticky top-0 left-0 z-10
@@ -60,6 +64,26 @@ const ChatList = () => {
     dark:border-slate-800
     justify-between
   `;
+
+  const openNewChatModal = () => {
+    openModal({
+      name: ModalName.FRIEND_REQUEST_MODAL,
+      eventName: ModalName.FRIEND_REQUEST_MODAL,
+    });
+  };
+
+  const newChatModalCallback = () => {
+    //
+  };
+
+  useEffect(() => {
+    eventProvider.addListener({
+      eventName: ModalName.FRIEND_REQUEST_MODAL,
+      callback: newChatModalCallback,
+    });
+
+    eventProvider.removeAllListeners({ eventName: ModalName.FRIEND_REQUEST_MODAL });
+  }, []);
 
   return (
     <BaseView className={chatListClasses}>
@@ -87,7 +111,11 @@ const ChatList = () => {
             className={'mb-0 px-2'}
             placeholder={'GLOBAL.FORM_ELEMENTS.LABELS.SEARCH'}
           />
-          <BaseButton icon={{ icon: CUSTOM_ICON.MESSAGE_PLUS }} className={'bg-transparent'} />
+          <BaseButton
+            icon={{ icon: CUSTOM_ICON.MESSAGE_PLUS }}
+            className={'bg-transparent'}
+            onClick={openNewChatModal}
+          />
         </BaseView>
         <BaseView className={'my-6 flex-1 w-full px-2'}>
           {messages.map((item, index) => (

@@ -1,3 +1,3 @@
 import { BaseFormProps } from '../BaseForm.interface';
 
-export type AddFriendFormProps = BaseFormProps;
+export type SearchFormProps = BaseFormProps;

@@ -9,9 +9,17 @@ import {
   RemoveFriendBodyRequest,
 } from './friendService.interface';
 import { Friend, FriendRequest } from '../../../types/friend';
+import { SearchUsersQueryParams } from '../user/userService.interface';
 
 export const friendApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    getFriends: builder.query<Array<Friend>, Get<SearchUsersQueryParams>>({
+      query: ({ query }) => ({
+        url: ENDPOINT.FRIENDS,
+        method: ApiServiceMethod.GET,
+        data: { params: query },
+      }),
+    }),
     addFriend: builder.mutation<Friend, Post<AddFriendBodyRequest>>({
       query: ({ body }) => ({
         url: `${ENDPOINT.FRIENDS}${ENDPOINT.ADD}`,
@@ -81,4 +89,6 @@ export const {
   useRemoveFriendMutation,
   useRejectFriendMutation,
   useFriendRequestsQuery,
+  useGetFriendsQuery,
+  useLazyGetFriendsQuery,
 } = friendApi;

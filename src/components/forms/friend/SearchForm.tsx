@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import BaseView from '../../common/base-view/BaseView';
-import { AddFriendFormProps } from './AddFriendForm.interface';
+import { SearchFormProps } from './AddFriendForm.interface';
 import TextInput from '../../inputs/TextInput';
 
-const AddFriendForm: FC<AddFriendFormProps> = (props) => {
+const SearchForm: FC<SearchFormProps> = (props) => {
   const { form, className } = props;
 
   return (
@@ -13,4 +13,4 @@ const AddFriendForm: FC<AddFriendFormProps> = (props) => {
   );
 };
 
-export default AddFriendForm;
+export default SearchForm;
