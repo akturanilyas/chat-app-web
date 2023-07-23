@@ -23,7 +23,7 @@ const FriendList: FC<FriendListProps> = ({ search }) => {
   return (
     <BaseView className={'gap-4'}>
       {(_friends || friends || []).map((friend) => (
-        <FriendItem key={friend.id} user={friend} />
+        <FriendItem key={friend.id} friend={friend} />
       ))}
     </BaseView>
   );

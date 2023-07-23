@@ -67,8 +67,8 @@ const ChatList = () => {
 
   const openNewChatModal = () => {
     openModal({
-      name: ModalName.FRIEND_REQUEST_MODAL,
-      eventName: ModalName.FRIEND_REQUEST_MODAL,
+      name: ModalName.NEW_CHAT_MODAL,
+      eventName: ModalName.NEW_CHAT_MODAL,
     });
   };
 

@@ -6,7 +6,7 @@ import ImageView from '../common/base-image/ImageView';
 import { FriendItemProps } from './FriendItem.interface';
 
 const FriendItem: FC<FriendItemProps> = (props) => {
-  const { user } = props;
+  const { friend } = props;
 
   const image = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
 
@@ -18,7 +18,7 @@ const FriendItem: FC<FriendItemProps> = (props) => {
     >
       <BaseView className={'flex flex-row items-center gap-2'}>
         <ImageView image={image} className={'w-12 h-12'} />
-        <BaseText text={user.full_name} />
+        <BaseText text={friend.user.name} />
       </BaseView>
     </BaseView>
   );

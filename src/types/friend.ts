@@ -1,8 +1,6 @@
 export type Friend = {
   id: string;
-  full_name: string;
-  username: string;
-  photo?: string;
+  user: { name: string };
 };
 
 export type FriendRequest = {
