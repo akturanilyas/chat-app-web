@@ -19,7 +19,10 @@
     "COMPONENTS": {
       "MODALS": {
         "ADD_FRIEND": {
-          "TITLE": "Add Friends"
+          "TITLE": "Add Friend"
+        },
+        "ADD_CHAT": {
+          "TITLE": "Add Chat"
         },
         "FRIEND_REQUESTS": {
           "TITLE": "Friend Requests"

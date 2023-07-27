@@ -5,7 +5,7 @@ import { ModalProps } from '../../routes/route.interface';
 import SearchForm from '../forms/friend/SearchForm';
 import AddFriendList from '../friend/AddFriendList';
 
-const AddFriendModal: FC<ModalProps> = () => {
+const AddFriendModal: FC<ModalProps> = ({ props, eventName }) => {
   const form = useForm({ shouldUnregister: true });
 
   const modalProps = {

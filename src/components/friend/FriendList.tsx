@@ -8,7 +8,7 @@ import {
   useLazyGetFriendsQuery,
 } from '../../api/services/friend/friendService';
 
-const FriendList: FC<FriendListProps> = ({ search }) => {
+const FriendList: FC<FriendListProps> = ({ search, itemOnClick }) => {
   const { data: friends } = useGetFriendsQuery({});
   const [getUsers, { data: _friends }] = useLazyGetFriendsQuery();
 
@@ -23,7 +23,7 @@ const FriendList: FC<FriendListProps> = ({ search }) => {
   return (
     <BaseView className={'gap-4'}>
       {(_friends || friends || []).map((friend) => (
-        <FriendItem key={friend.id} friend={friend} />
+        <FriendItem key={friend.id} friend={friend} itemOnClick={itemOnClick} />
       ))}
     </BaseView>
   );

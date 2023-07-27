@@ -11,8 +11,12 @@ import BaseButton from '../common/base-button/BaseButton';
 import { ModalName } from '../../enums/modalName.enum';
 import useModalDispatcher from '../../hooks/useModalDispatcher';
 import eventProvider from '../../providers/EventProvider';
+import {
+  useCreateChatMutation,
+  useGetChatsQuery,
+} from '../../api/services/chat-service/chatService';
 
-const messages = [
+const chats = [
   {
     id: '1',
     name: 'name',
@@ -52,6 +56,8 @@ const messages = [
 
 const ChatList = () => {
   const form = useForm();
+  const [createChatMutation] = useCreateChatMutation();
+  const { data: chats } = useGetChatsQuery({});
   const { openModal } = useModalDispatcher();
 
   const chatListClasses = `
@@ -72,17 +78,28 @@ const ChatList = () => {
     });
   };
 
-  const newChatModalCallback = () => {
+  const newChatModalCallback = (payload?: Record<string, unknown>) => {
+    createChatMutation({ body: { id: payload?.id } });
+  };
+  const friendRequestModalCallback = (payload?: Record<string, unknown>) => {
     //
   };
 
   useEffect(() => {
     eventProvider.addListener({
       eventName: ModalName.FRIEND_REQUEST_MODAL,
+      callback: friendRequestModalCallback,
+    });
+
+    eventProvider.addListener({
+      eventName: ModalName.NEW_CHAT_MODAL,
       callback: newChatModalCallback,
     });
 
-    eventProvider.removeAllListeners({ eventName: ModalName.FRIEND_REQUEST_MODAL });
+    return () => {
+      eventProvider.removeAllListeners({ eventName: ModalName.FRIEND_REQUEST_MODAL });
+      eventProvider.removeAllListeners({ eventName: ModalName.NEW_CHAT_MODAL });
+    };
   }, []);
 
   return (
@@ -118,8 +135,8 @@ const ChatList = () => {
           />
         </BaseView>
         <BaseView className={'my-6 flex-1 w-full px-2'}>
-          {messages.map((item, index) => (
-            <ChatItem key={index} {...item} />
+          {(chats || []).map((chat, index) => (
+            <ChatItem key={chat.id} {...chat} />
           ))}
         </BaseView>
       </BaseView>

@@ -8,6 +8,7 @@ export const ENDPOINT = {
   FRIENDS: '/friends',
   REQUESTS: '/requests',
   ACCEPT: '/accept',
+  CHATS: '/chats',
   REJECT: '/reject',
   REMOVE: '/remove',
   ADD: '/add',
