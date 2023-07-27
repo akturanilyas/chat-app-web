@@ -2,21 +2,21 @@ import { baseApi } from '../../baseApi';
 import { ENDPOINT } from '../../endpoints';
 import { ApiServiceMethod } from '../../../enums/apiServiceMethods.enum';
 import { Get, Post } from '../../commonService.interface';
-import { Chat } from '../../../types/chat';
-import { CreateChatBoduParams } from './chatService.interface';
+import { Message } from '../../../types/message';
+import { CreateChatBodyParams } from '../chat/chatService.interface';
 
 export const chatApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getChats: builder.query<Array<Chat>, Get>({
+    getMessages: builder.query<Array<Message>, Get>({
       query: ({ query }) => ({
-        url: ENDPOINT.CHATS,
+        url: ENDPOINT.MESSAGES,
         method: ApiServiceMethod.GET,
         data: { params: query },
       }),
     }),
-    createChat: builder.mutation<Chat, Post<CreateChatBoduParams>>({
+    createMessage: builder.mutation<Message, Post<CreateChatBodyParams>>({
       query: ({ body }) => ({
-        url: ENDPOINT.CHATS,
+        url: ENDPOINT.MESSAGES,
         method: ApiServiceMethod.POST,
         data: { body },
       }),
@@ -24,4 +24,4 @@ export const chatApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetChatsQuery, useCreateChatMutation } = chatApi;
+export const { useGetMessagesQuery, useCreateMessageMutation } = chatApi;

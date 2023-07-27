@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import BaseView from '../../../components/common/base-view/BaseView';
 import ChatList from '../../../components/chat/ChatList';
 import Header from '../../../components/header/Header';
-import MessageBox from '../../../components/chat/ChatBox';
+import MessageBox from '../../../components/chat/MessageBox';
 
 const Chat: FC = () => (
   <BaseView className={'flex-row w-full'}>

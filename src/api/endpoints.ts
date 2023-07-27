@@ -1,6 +1,7 @@
 export const ENDPOINT = {
   AUTH: '/auth',
   LOGIN: '/login',
+  MESSAGES: '/messages',
   REGISTER: '/register',
   REFRESH_TOKEN: 'refresh-token',
   SELF: '/self',
