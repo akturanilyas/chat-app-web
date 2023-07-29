@@ -1,9 +1,7 @@
-import { User } from '../../types/user';
+import { Message } from '../../types/message';
+import { ForwardedRef } from 'react';
 
 export interface MessageProps {
-  id: string;
-  message: string;
-  sender: string;
-  receiver: string;
-  time: string;
+  message: Message;
+  ref?: ForwardedRef<HTMLDivElement>;
 }

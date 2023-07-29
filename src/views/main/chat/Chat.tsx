@@ -4,6 +4,7 @@ import ChatList from '../../../components/chat/ChatList';
 import Header from '../../../components/header/Header';
 import MessageBox from '../../../components/chat/MessageBox';
 import BaseText from '../../../components/common/base-text/BaseText';
+import { useSocket } from '../../../hooks/useSocket';
 
 const Chat: FC = () => {
   const [chatId, setChatId] = useState<string>();

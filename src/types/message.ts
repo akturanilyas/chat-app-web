@@ -2,8 +2,8 @@ export type Message = {
   id: string;
   created_at: string;
   updated_at: string;
-  message: string;
-  sender: string;
-  receiver: string;
+  text: string;
+  chat_id: string;
+  sender: { id: string; name: string };
   time: string;
 };
