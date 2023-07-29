@@ -2,7 +2,7 @@ import React from 'react';
 import BaseView from '../../../components/common/base-view/BaseView';
 import LoginForm from '../../../components/forms/auth/LoginForm';
 import { useForm } from 'react-hook-form';
-import BaseButton from '../../../components/common/button/BaseButton';
+import BaseButton from '../../../components/common/base-button/BaseButton';
 import { useLoginMutation } from '../../../api/services/auth/authService';
 import BaseLink from '../../../components/common/base-link/BaseLink';
 import { PUBLIC_PATH } from '../../../constants/publicPath.constant';

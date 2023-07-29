@@ -1,7 +1,16 @@
 export const ENDPOINT = {
   AUTH: '/auth',
   LOGIN: '/login',
+  MESSAGES: '/messages',
   REGISTER: '/register',
   REFRESH_TOKEN: 'refresh-token',
   SELF: '/self',
+  SEARCH_USERS: '/search-users',
+  FRIENDS: '/friends',
+  REQUESTS: '/requests',
+  ACCEPT: '/accept',
+  CHATS: '/chats',
+  REJECT: '/reject',
+  REMOVE: '/remove',
+  ADD: '/add',
 };

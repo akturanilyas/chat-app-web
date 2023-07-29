@@ -22,7 +22,7 @@ const AppLayout = () => {
   const RouteLayout = isEmpty(user) ? PublicLayout : MainLayout;
 
   return (
-    <BaseView >
+    <BaseView>
       <BrowserRouter>
         <RouteLayout>
           <Routes>

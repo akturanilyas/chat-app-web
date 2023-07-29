@@ -1,6 +1,6 @@
 import React, { ForwardedRef, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import BaseLabel from '../base-label/BaseLabel';
+import BaseLabel from '../common/base-label/BaseLabel';
 import { BaseInputProps } from './BaseInput.interface';
 import BaseView from '../common/base-view/BaseView';
 

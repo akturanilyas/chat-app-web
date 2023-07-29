@@ -168,6 +168,7 @@ export { default as Maximize } from './Maximize';
 export { default as Meh } from './Meh';
 export { default as Menu } from './Menu';
 export { default as MessageCircle } from './MessageCircle';
+export { default as MessagePlus } from './MessagePlus';
 export { default as MessageSquare } from './MessageSquare';
 export { default as MicOff } from './MicOff';
 export { default as Mic } from './Mic';

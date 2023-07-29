@@ -1,3 +1,5 @@
 export enum ModalName {
-  MODAL_NAME = 'ModalName',
+  ADD_FRIEND_MODAL = 'AddFriendModal',
+  FRIEND_REQUEST_MODAL = 'FriendRequestModal',
+  NEW_CHAT_MODAL = 'NewChatModal',
 }

@@ -3,6 +3,8 @@ import { twMerge } from 'tailwind-merge';
 import BaseView from '../components/common/base-view/BaseView';
 import { ModalLayoutProps } from './ModalLayout.interface';
 import useModalDispatcher from '../hooks/useModalDispatcher';
+import BaseModalHeader from '../components/common/base-modal/BaseModalHeader';
+import BaseModalFooter from '../components/common/base-modal/BaseModalFooter';
 
 const ModalLayout: FC<ModalLayoutProps> = (props) => {
   const {
@@ -61,9 +63,9 @@ const ModalLayout: FC<ModalLayoutProps> = (props) => {
   return (
     <BaseView className={modalLayoutClasses} ref={containerRef}>
       <BaseView className={modalContainerClasses} ref={contentRef}>
-        {/* TODO BaseModalHeader */}
+        {header && <BaseModalHeader isCancellable={isCancellable} {...header} />}
         <BaseView className={'p-4 h-full'}>{children}</BaseView>
-        {/* TODO BaseModalFooter */}
+        {footer && <BaseModalFooter {...footer} />}
       </BaseView>
     </BaseView>
   );
