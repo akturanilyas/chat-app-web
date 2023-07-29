@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { MAIN_PATH } from '../../constants/mainPath.constant';
 import BaseLink from '../common/base-link/BaseLink';
 import BaseView from '../common/base-view/BaseView';
@@ -15,8 +15,9 @@ import {
   useCreateChatMutation,
   useGetChatsQuery,
 } from '../../api/services/chat/chatService';
+import { ChatListProps } from './ChatList.interface';
 
-const ChatList = () => {
+const ChatList: FC<ChatListProps> = ({ onListItemClicked }) => {
   const form = useForm();
   const [createChatMutation] = useCreateChatMutation();
   const { data: chats } = useGetChatsQuery({});
@@ -98,7 +99,7 @@ const ChatList = () => {
         </BaseView>
         <BaseView className={'my-6 flex-1 w-full px-2'}>
           {(chats || []).map((chat, index) => (
-            <ChatItem key={chat.id} {...chat} />
+            <ChatItem key={chat.id} chat={chat} onClick={onListItemClicked} />
           ))}
         </BaseView>
       </BaseView>

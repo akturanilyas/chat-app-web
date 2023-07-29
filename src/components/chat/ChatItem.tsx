@@ -6,25 +6,21 @@ import ImageView from '../common/base-image/ImageView';
 import TimeText from '../common/time-text/TimeText';
 
 const ChatItem: FC<ChatItemProps> = (props) => {
-  const { id, name, message, image, time } = props;
-
-  const chatItemClick = () => {
-    //
-  };
+  const { chat, onClick } = props;
 
   return (
     <BaseView>
-      <BaseView className={'flex flex-row'} onClick={() => chatItemClick()}>
-        <ImageView image={image} className={'w-16 h-16'} />
+      <BaseView className={'flex flex-row'} onClick={() => onClick(chat.id)}>
+        <ImageView image={chat.image} className={'w-16 h-16'} />
 
         <BaseView className={'w-full px-2 overflow-x-hidden'}>
           <BaseView className={'flex-row justify-between items-center'}>
-            <BaseText text={name} className={'font-bold'} />
-            <TimeText text={time} className={'font-bold'} />
+            <BaseText text={chat.name} className={'font-bold'} />
+            <TimeText text={chat.time} className={'font-bold'} />
           </BaseView>
 
           <BaseText
-            text={message}
+            text={chat.message}
             className={'font-medium text-sm truncate break-all cursor-pointer'}
           />
         </BaseView>

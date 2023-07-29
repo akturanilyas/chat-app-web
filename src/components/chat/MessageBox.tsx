@@ -1,24 +1,33 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import BaseView from '../common/base-view/BaseView';
 import TextInput from '../inputs/TextInput';
 import { useForm } from 'react-hook-form';
 import Message from '../message/Message';
+import { Message as MessageModel } from '../../types/message';
+
 import Button from '../common/button/Button';
 import { CUSTOM_ICON } from '../../constants/customIcon.constant';
 import {
   useCreateMessageMutation,
-  useGetMessagesQuery,
+  useLazyGetMessagesQuery,
 } from '../../api/services/message/messageService';
 import { MessageBoxInterface } from './MessageBox.interface';
 
 const MessageBox: FC<MessageBoxInterface> = ({ chatId }) => {
   const form = useForm();
   const [createMessageMutation] = useCreateMessageMutation();
-  const { data: messages } = useGetMessagesQuery({});
-
+  const [getMessagesQuery] = useLazyGetMessagesQuery();
+  const [messages, setMessages] = useState<Array<MessageModel>>([]);
   const sendMessage = () => {
     createMessageMutation({ id: chatId, body: { text: form.getValues('message') } });
   };
+
+  useEffect(() => {
+    chatId
+      && getMessagesQuery({ id: chatId })
+        .unwrap()
+        .then((messages: Array<MessageModel>) => setMessages(messages));
+  }, [chatId]);
 
   return (
     <BaseView className={'h-[90vh]'}>

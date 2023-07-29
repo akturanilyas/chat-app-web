@@ -8,15 +8,15 @@ import { CreateChatBodyParams } from '../chat/chatService.interface';
 export const chatApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getMessages: builder.query<Array<Message>, Get>({
-      query: ({ query }) => ({
-        url: ENDPOINT.MESSAGES,
+      query: ({ id, query }) => ({
+        url: `${ENDPOINT.CHATS}/${id}${ENDPOINT.MESSAGES}`,
         method: ApiServiceMethod.GET,
         data: { params: query },
       }),
     }),
     createMessage: builder.mutation<Message, Post<CreateChatBodyParams>>({
-      query: ({ body }) => ({
-        url: ENDPOINT.MESSAGES,
+      query: ({ id, body }) => ({
+        url: `${ENDPOINT.CHATS}/${id}${ENDPOINT.MESSAGES}`,
         method: ApiServiceMethod.POST,
         data: { body },
       }),
@@ -24,4 +24,5 @@ export const chatApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetMessagesQuery, useCreateMessageMutation } = chatApi;
+export const { useGetMessagesQuery, useCreateMessageMutation, useLazyGetMessagesQuery }
+  = chatApi;

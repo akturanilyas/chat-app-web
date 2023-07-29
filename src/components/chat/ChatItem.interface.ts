@@ -1,7 +1,6 @@
+import { Chat } from '../../types/chat';
+
 export interface ChatItemProps {
-  id: string;
-  message: string;
-  image: string;
-  name: string;
-  time: string;
+  chat: Chat;
+  onClick: (id:string) => void;
 }
