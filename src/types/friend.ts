@@ -1,6 +1,6 @@
 export type Friend = {
   id: string;
-  user: { name: string };
+  user: { id: string; name: string };
 };
 
 export type FriendRequest = {

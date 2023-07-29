@@ -6,6 +6,7 @@ import SearchForm from '../forms/friend/SearchForm';
 import FriendList from '../friend/FriendList';
 import eventProvider from '../../providers/EventProvider';
 import useModalDispatcher from '../../hooks/useModalDispatcher';
+import { Friend } from '../../types/friend';
 
 const NewChatModal: FC<ModalProps> = ({ eventName }) => {
   const form = useForm({ shouldUnregister: true });
@@ -20,8 +21,8 @@ const NewChatModal: FC<ModalProps> = ({ eventName }) => {
     },
   };
 
-  const itemOnClick = (id: string) => {
-    eventName && eventProvider.emit({ eventName, payload: { id } });
+  const itemOnClick = (friend: Friend) => {
+    eventName && eventProvider.emit({ eventName, payload: { friend } });
     goBackModal();
   };
 

@@ -1,4 +1,6 @@
+import { Friend } from '../../types/friend';
+
 export interface FriendListProps {
   search?: String;
-  itemOnClick: (id: string) => void;
+  itemOnClick: (friend: Friend) => void;
 }

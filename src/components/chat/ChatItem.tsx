@@ -11,11 +11,11 @@ const ChatItem: FC<ChatItemProps> = (props) => {
   return (
     <BaseView>
       <BaseView className={'flex flex-row'} onClick={() => onClick(chat.id)}>
-        <ImageView image={chat.image} className={'w-16 h-16'} />
+        <ImageView image={chat.target.image} className={'w-16 h-16'} />
 
         <BaseView className={'w-full px-2 overflow-x-hidden'}>
           <BaseView className={'flex-row justify-between items-center'}>
-            <BaseText text={chat.name} className={'font-bold'} />
+            <BaseText text={chat.target.name} className={'font-bold'} />
             <TimeText text={chat.time} className={'font-bold'} />
           </BaseView>
 

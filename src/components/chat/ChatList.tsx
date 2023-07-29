@@ -16,6 +16,7 @@ import {
   useGetChatsQuery,
 } from '../../api/services/chat/chatService';
 import { ChatListProps } from './ChatList.interface';
+import { Friend } from '../../types/friend';
 
 const ChatList: FC<ChatListProps> = ({ onListItemClicked }) => {
   const form = useForm();
@@ -42,7 +43,7 @@ const ChatList: FC<ChatListProps> = ({ onListItemClicked }) => {
   };
 
   const newChatModalCallback = (payload?: Record<string, unknown>) => {
-    createChatMutation({ body: { id: payload?.id } });
+    createChatMutation({ body: { id: (payload?.friend as Friend).user.id } });
   };
   const friendRequestModalCallback = (payload?: Record<string, unknown>) => {
     //

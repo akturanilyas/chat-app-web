@@ -14,7 +14,7 @@ const FriendItem: FC<FriendItemProps> = (props) => {
       className={
         'flex flex-row justify-between border-2 p-2 items-center border-slate-200'
       }
-      onClick={() => itemOnClick(friend.id)}
+      onClick={() => itemOnClick(friend)}
     >
       <BaseView className={'flex flex-row items-center gap-2'}>
         <ImageView image={image} className={'w-12 h-12'} />
