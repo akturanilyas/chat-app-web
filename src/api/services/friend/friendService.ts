@@ -10,6 +10,9 @@ import {
 } from './friendService.interface';
 import { Friend, FriendRequest } from '../../../types/friend';
 import { SearchUsersQueryParams } from '../user/userService.interface';
+import { FriendableUser } from '../../../types/user';
+import { FriendStatus } from '../../../enums/friendStatus.enum';
+import { userApi } from '../user/userService';
 
 export const friendApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -20,12 +23,31 @@ export const friendApi = baseApi.injectEndpoints({
         data: { params: query },
       }),
     }),
-    addFriend: builder.mutation<Friend, Post<AddFriendBodyRequest>>({
+    addFriend: builder.mutation<FriendRequest, Post<AddFriendBodyRequest>>({
       query: ({ body }) => ({
         url: `${ENDPOINT.FRIENDS}${ENDPOINT.ADD}`,
         method: ApiServiceMethod.POST,
         data: { body },
       }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        queryFulfilled.then((response) => {
+          const { data }: { data: FriendRequest } = response;
+
+          dispatch(
+            userApi.util.updateQueryData(
+              'searchUser',
+              {},
+              (draft: Array<FriendableUser>) => draft.map((user) => {
+                  if (user.id === data.receiver_id) {
+                    return { ...user, status: FriendStatus.RECEIVED };
+                  }
+
+                  return user;
+                }),
+            ),
+          );
+        });
+      },
     }),
     removeFriend: builder.mutation<Friend, Post<RemoveFriendBodyRequest>>({
       query: ({ body }) => ({

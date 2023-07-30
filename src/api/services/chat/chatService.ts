@@ -20,6 +20,23 @@ export const chatApi = baseApi.injectEndpoints({
         method: ApiServiceMethod.POST,
         data: { body },
       }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        queryFulfilled.then((response) => {
+          const { data }: { data: Chat } = response;
+
+          dispatch(
+            chatApi.util.updateQueryData('getChats', {}, (draft: Array<Chat>) => {
+              const isExist = draft.find((item) => item.id === data.id);
+
+              if (isExist) {
+                return draft;
+              }
+
+              return [data, ...draft];
+            }),
+          );
+        });
+      },
     }),
   }),
 });
