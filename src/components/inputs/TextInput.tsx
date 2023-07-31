@@ -5,7 +5,7 @@ import { InputType } from '../../enums/common.enum';
 
 const TextInput: FC<TextInputProps> = forwardRef(
   (props, ref: ForwardedRef<HTMLInputElement>) => (
-    <Input {...props} type={InputType.TEXT} ref={ref} />
+    <Input type={InputType.TEXT} {...props} ref={ref} />
   ),
 );
 

@@ -184,6 +184,7 @@ export { default as MoreVertical } from './MoreVertical';
 export { default as MousePointer } from './MousePointer';
 export { default as Move } from './Move';
 export { default as Music } from './Music';
+export { default as MyChatLogo } from './MyChatLogo';
 export { default as Navigation2 } from './Navigation2';
 export { default as Navigation } from './Navigation';
 export { default as Note } from './Note';

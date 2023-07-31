@@ -34,7 +34,8 @@
       "DONT_HAVE_ACCOUNT": "Don't Have an Account? Register",
       "ALREADY_HAVE_ACCOUNT": "Already Have an Account? Login",
       "SUBMIT": "Submit",
-      "CANCEL": "Cancel"
+      "CANCEL": "Cancel",
+      "REGISTER": "Register"
     }
   }
 }

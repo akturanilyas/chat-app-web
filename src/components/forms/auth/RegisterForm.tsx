@@ -4,6 +4,7 @@ import TextInput from '../../inputs/TextInput';
 import { FORM_RULE } from '../../../constants/formRule.constant';
 import { FORM_RULE_MESSAGE } from '../../../constants/formRuleMessage.constant';
 import { RegisterFormProps } from './RegisterForm.interface';
+import { InputType } from '../../../enums/common.enum';
 
 const RegisterForm: FC<RegisterFormProps> = (props) => {
   const { form, className } = props;
@@ -45,6 +46,7 @@ const RegisterForm: FC<RegisterFormProps> = (props) => {
       <TextInput
         form={form}
         name={'password'}
+        type={InputType.PASSWORD}
         label={'GLOBAL.FORM_ELEMENTS.LABELS.PASSWORD'}
         rules={FORM_RULE.REQUIRED}
         errorMessage={FORM_RULE_MESSAGE.REQUIRED}

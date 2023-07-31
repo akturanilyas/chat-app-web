@@ -7,7 +7,6 @@ const PublicLayout: FC<PublicLayoutProps> = (props) => {
   const { className, children } = props;
 
   const classes = twMerge(`
-    bg-slate-700
     ${className || ''}
   `);
 

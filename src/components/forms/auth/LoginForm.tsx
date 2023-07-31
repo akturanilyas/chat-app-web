@@ -4,6 +4,7 @@ import BaseView from '../../common/base-view/BaseView';
 import TextInput from '../../inputs/TextInput';
 import { FORM_RULE } from '../../../constants/formRule.constant';
 import { FORM_RULE_MESSAGE } from '../../../constants/formRuleMessage.constant';
+import { InputType } from '../../../enums/common.enum';
 
 const LoginForm: FC<LoginFormProps> = (props) => {
   const { form, className } = props;
@@ -21,6 +22,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
         form={form}
         name={'password'}
         label={'GLOBAL.FORM_ELEMENTS.LABELS.PASSWORD'}
+        type={InputType.PASSWORD}
         rules={FORM_RULE.REQUIRED}
         errorMessage={FORM_RULE_MESSAGE.REQUIRED}
       />

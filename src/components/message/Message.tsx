@@ -20,14 +20,12 @@ const Message: FC<MessageProps> = forwardRef(
         <BaseView className={classes}>
           <BaseView
             className={
-              ' m-2 min-w-[150px] border border-primary rounded-2xl min-h-[64px] px-2 my-2 overflow-x-hidden'
+              'm-2 min-w-[150px] border border-primary rounded-2xl min-h-[64px] px-2 my-2 overflow-x-hidden'
             }
           >
-            {!isMyMessage && (
-              <BaseView className={'flex flex-row gap-4 justify-between items-center'}>
-                <BaseText text={message.sender.name} className={'font-bold'} />
-              </BaseView>
-            )}
+            <BaseView className={'flex flex-row gap-4 items-center'}>
+              <BaseText text={message.sender.name} className={'font-bold'} />
+            </BaseView>
 
             <BaseView className={'flex-row'}>
               <BaseText text={message.text} className={'font-medium text-sm'} />
