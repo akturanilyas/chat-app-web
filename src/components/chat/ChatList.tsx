@@ -18,14 +18,14 @@ import {
 import { ChatListProps } from './ChatList.interface';
 import { Friend } from '../../types/friend';
 
-const ChatList: FC<ChatListProps> = ({ onListItemClicked }) => {
+const ChatList: FC<ChatListProps> = ({ onListItemClicked, chatId }) => {
   const form = useForm();
   const [createChatMutation] = useCreateChatMutation();
   const { data: chats } = useGetChatsQuery({});
   const { openModal } = useModalDispatcher();
 
   const chatListClasses = `
-    w-64 h-[100vh] overflow-auto no-scrollbar
+    w-96 h-[100vh] overflow-auto no-scrollbar
     sticky top-0 left-0 z-10
     bg-slate-light
     dark:bg-slate-dark
@@ -66,6 +66,8 @@ const ChatList: FC<ChatListProps> = ({ onListItemClicked }) => {
     };
   }, []);
 
+  console.log(chatId);
+
   return (
     <BaseView className={chatListClasses}>
       <BaseView className={'w-full'}>
@@ -82,25 +84,31 @@ const ChatList: FC<ChatListProps> = ({ onListItemClicked }) => {
               bg-slate-light 
               dark:bg-slate-dark
             `}
+              logoClassName={'w-[140px]'}
             />
           </BaseLink>
         </BaseView>
-        <BaseView className={'flex flex-row items-center mt-2'}>
+        <BaseView className={'flex flex-row items-center mt-2 gap-4'}>
           <TextInput
             form={form}
             name={'search'}
-            className={'mb-0 px-2'}
+            className={'mb-0 ml-4'}
             placeholder={'GLOBAL.FORM_ELEMENTS.LABELS.SEARCH'}
           />
           <BaseButton
             icon={{ icon: CUSTOM_ICON.MESSAGE_PLUS }}
-            className={'bg-transparent'}
+            className={'bg-transparent mr-4'}
             onClick={openNewChatModal}
           />
         </BaseView>
-        <BaseView className={'my-6 flex-1 w-full px-2'}>
+        <BaseView className={'my-6 flex-1 w-full'}>
           {(chats || []).map((chat, index) => (
-            <ChatItem key={chat.id} chat={chat} onClick={onListItemClicked} />
+            <ChatItem
+              key={chat.id}
+              className={chat.id === chatId ? 'bg-blue-primary' : ''}
+              chat={chat}
+              onClick={onListItemClicked}
+            />
           ))}
         </BaseView>
       </BaseView>

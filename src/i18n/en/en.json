@@ -6,6 +6,7 @@
         "FIRST_NAME": "First Name",
         "LAST_NAME": "Last Name",
         "EMAIL": "e-Mail",
+        "SELECT_ANY_CHAT": "Select any chat",
         "ADD_FRIENDS": "e-Mail",
         "PASSWORD": "Password",
         "SEARCH": "Search"

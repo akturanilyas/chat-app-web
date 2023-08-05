@@ -4,7 +4,6 @@ import ChatList from '../../../components/chat/ChatList';
 import Header from '../../../components/header/Header';
 import MessageBox from '../../../components/chat/MessageBox';
 import BaseText from '../../../components/common/base-text/BaseText';
-import { useSocket } from '../../../hooks/useSocket';
 
 const Chat: FC = () => {
   const [chatId, setChatId] = useState<string>();
@@ -13,16 +12,18 @@ const Chat: FC = () => {
     setChatId(id);
   };
 
+  console.log(chatId);
+
   return (
     <BaseView className={'flex-row w-full'}>
-      <ChatList onListItemClicked={onChatItemClicked} />
+      <ChatList onListItemClicked={onChatItemClicked} chatId={chatId} />
       <BaseView className={'w-full flex-1 min-h-screen min-w-0 relative'}>
         <Header />
         {chatId ? (
           <MessageBox chatId={chatId} />
         ) : (
-          <BaseView>
-            <BaseText text={'Select any chat'} />
+          <BaseView className={'items-center justify-center h-full align-middle'}>
+            <BaseText text={'GLOBAL.FORM_ELEMENTS.LABELS.SELECT_ANY_CHAT'} />
           </BaseView>
         )}
       </BaseView>

@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{html,js,ts,tsx,jsx}'],
@@ -56,6 +56,9 @@ module.exports = {
           700: '#374151',
           800: '#1f2937',
           900: '#111827',
+        },
+        blue: {
+          primary: '#4D66F3',
         },
       },
       fontFamily: {

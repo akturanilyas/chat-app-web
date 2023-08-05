@@ -4,12 +4,18 @@ import { ChatItemProps } from './ChatItem.interface';
 import BaseText from '../common/base-text/BaseText';
 import ImageView from '../common/base-image/ImageView';
 import TimeText from '../common/time-text/TimeText';
+import { twMerge } from 'tailwind-merge';
 
 const ChatItem: FC<ChatItemProps> = (props) => {
-  const { chat, onClick } = props;
+  const { chat, onClick, className } = props;
+
+  const classes = twMerge(`
+  p-8 rounded
+  ${className}
+  `);
 
   return (
-    <BaseView>
+    <BaseView className={classes}>
       <BaseView className={'flex flex-row'} onClick={() => onClick(chat.id)}>
         <ImageView image={chat.target.image} className={'w-16 h-16'} />
 
