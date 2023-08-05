@@ -8,10 +8,10 @@ import { useMain } from '../../hooks/useSlices';
 
 const Message: FC<MessageProps> = forwardRef(
   (props: MessageProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const { message } = props;
+    const { message, previousMessage } = props;
     const { user } = useMain();
 
-    const classes = 'flex flex-row w-1/2';
+    const classes = 'flex flex-row w-1/2 mx-4';
 
     const isMyMessage = message.sender.id === user?.id;
 
@@ -19,16 +19,27 @@ const Message: FC<MessageProps> = forwardRef(
       <BaseView ref={ref} style={{ direction: isMyMessage ? 'rtl' : 'ltr' }}>
         <BaseView className={classes}>
           <BaseView
-            className={
-              'm-2 min-w-[150px] border border-primary rounded-2xl min-h-[64px] px-2 my-2 overflow-x-hidden'
-            }
+            className={`min-w-[150px] rounded-2xl
+               rtl:rounded-bl-none min-h-[64px] 
+               overflow-x-hidden shadow-md
+               mx-8
+               ${
+                 isMyMessage
+                   ? 'bg-blue-primary rounded-br-none'
+                   : 'bg-grey-100 rounded-bl-none'
+               }`}
           >
-            <BaseView className={'flex flex-row gap-4 items-center'}>
-              <BaseText text={message.sender.name} className={'font-bold'} />
+            <BaseView className={'flex flex-row gap-4 items-center mx-4 my-2'}>
+              <BaseText text={message.sender.name} className={`font-bold ${isMyMessage ? 'text-slate-200' : 'text-slate-400'}`} />
             </BaseView>
 
-            <BaseView className={'flex-row'}>
-              <BaseText text={message.text} className={'font-medium text-sm'} />
+            <BaseView className={'flex-row mx-4 pb-2'}>
+              <BaseText
+                text={message.text}
+                className={`font-medium text-sm ${
+                  isMyMessage ? 'text-slate-100' : 'text-slate-500'
+                }`}
+              />
             </BaseView>
 
             <BaseView className={'flex-row-reverse'}>
@@ -37,12 +48,14 @@ const Message: FC<MessageProps> = forwardRef(
           </BaseView>
         </BaseView>
 
-        <BaseView className={'-mt-2'}>
-          <ImageView
-            image={'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'}
-            className={'max-w-[24px]'}
-          />
-        </BaseView>
+        {user?.id !== previousMessage?.sender.id && (
+          <BaseView className={'-mt-2'}>
+            <ImageView
+              image={'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'}
+              className={'max-w-[48px]'}
+            />
+          </BaseView>
+        )}
       </BaseView>
     );
   },

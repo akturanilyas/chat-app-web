@@ -4,9 +4,6 @@ import TextInput from '../inputs/TextInput';
 import { useForm } from 'react-hook-form';
 import Message from '../message/Message';
 import { Message as MessageModel } from '../../types/message';
-
-import Button from '../common/button/Button';
-import { CUSTOM_ICON } from '../../constants/customIcon.constant';
 import { useLazyGetMessagesQuery } from '../../api/services/message/messageService';
 import { MessageBoxInterface } from './MessageBox.interface';
 import { useSocket } from '../../hooks/useSocket';
@@ -14,6 +11,8 @@ import { useMain } from '../../hooks/useSlices';
 import { useDebounce } from '../../hooks/useDebounce';
 import { isEmpty } from 'lodash';
 import Header from '../header/Header';
+import { CUSTOM_ICON } from '../../constants/customIcon.constant';
+import TextButton from '../common/button/TextButton';
 
 const MessageBox: FC<MessageBoxInterface> = ({ currentChat }) => {
   const form = useForm();
@@ -65,34 +64,50 @@ const MessageBox: FC<MessageBoxInterface> = ({ currentChat }) => {
   }, [currentChat?.id]);
 
   return (
-    <>
+    <BaseView className={'relative'}>
       <Header chat={currentChat} />
 
-      <BaseView className={'h-[90vh]'}>
-        <BaseView className={'overflow-y-clip flex-grow'}>
-          <BaseView className={'overflow-y-scroll gap-4 flex-1'}>
+      <BaseView className={'bg-grey-200 '}>
+        <BaseView className={'overflow-y-clip h-[calc(100vh_-_96px)]'}>
+          <BaseView className={'overflow-y-scroll gap-4 flex-1 pt-4'}>
             {(messages || []).map((message, index) => {
               if (index + 1 === messages.length) {
                 return (
-                  <Message key={message.id} message={message} ref={lastMessageRef} />
+                  <Message
+                    key={message.id}
+                    message={message}
+                    ref={lastMessageRef}
+                    previousMessage={messages[index + 1]}
+                  />
                 );
               }
 
-              return <Message key={message.id} message={message} />;
+              return (
+                <Message
+                  key={message.id}
+                  message={message}
+                  previousMessage={messages[index - 1]}
+                />
+              );
             })}
           </BaseView>
-          <BaseView className={'flex flex-row gap-2 items-center'}>
+          <BaseView className={'flex flex-row'}>
             <TextInput
               ref={textInputRef}
-              className={'my-2'}
               form={form}
               name={'message'}
+              suffix={
+                <TextButton
+                  className={'bg-transparent'}
+                  icon={{ icon: CUSTOM_ICON.SEND, iconClassName: 'fill-blue-primary text-blue-primary' }}
+                  onClick={sendMessage}
+                />
+              }
             />
-            <Button icon={{ icon: CUSTOM_ICON.SEND }} onClick={sendMessage} />
           </BaseView>
         </BaseView>
       </BaseView>
-    </>
+    </BaseView>
   );
 };
 

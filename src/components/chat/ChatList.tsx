@@ -77,7 +77,7 @@ const ChatList: FC<ChatListProps> = ({ onListItemClicked, chatId }) => {
               border-slate-200 
               dark:border-slate-800 
               w-full 
-              h-16 
+              h-24 
               px-4
               bg-slate-light 
               dark:bg-slate-dark
