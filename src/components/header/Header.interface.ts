@@ -1,4 +1,4 @@
-import Chat from '../../views/main/chat/Chat';
+import { Chat } from '../../types/chat';
 
 export interface HeaderProps {
   chat: Chat | undefined;

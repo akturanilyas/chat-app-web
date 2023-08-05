@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import BaseView from '../common/base-view/BaseView';
 import { HeaderProps } from './Header.interface';
 import BaseButton from '../common/base-button/BaseButton';
@@ -7,8 +7,9 @@ import useModalDispatcher from '../../hooks/useModalDispatcher';
 import { ModalName } from '../../enums/modalName.enum';
 import BaseText from '../common/base-text/BaseText';
 import { useFriendRequestsQuery } from '../../api/services/friend/friendService';
+import ImageView from '../common/base-image/ImageView';
 
-const Header: FC<HeaderProps> = () => {
+const Header: FC<HeaderProps> = ({ chat }) => {
   const { openModal } = useModalDispatcher();
   const { data: requests } = useFriendRequestsQuery({});
 
@@ -16,7 +17,7 @@ const Header: FC<HeaderProps> = () => {
     flex-row
     w-full items-center
     sticky top-0 left-0
-    z-20 h-16
+    z-20 h-24
     bg-white
     dark:bg-slate-dark
     backdrop-blur
@@ -30,7 +31,11 @@ const Header: FC<HeaderProps> = () => {
 
   return (
     <BaseView className={headerClasses}>
-      <BaseView className={'flex-row flex-1 justify-end items-center'}>
+      <BaseView className={'flex-row flex-1 items-center'}>
+        <BaseView className={'flex flex-1 flex-row items-center gap-4'}>
+          {chat && <ImageView image={chat.target.image} className={'w-12 h-12'} />}
+          {chat && <BaseText className={'font-bold text-slate-400'} text={chat.target.name} />}
+        </BaseView>
         <BaseView className={'flex-row h-full items-center gap-2'}>
           <BaseButton
             icon={{ icon: CUSTOM_ICON.USER_PLUS }}
