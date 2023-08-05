@@ -13,8 +13,9 @@ import { useSocket } from '../../hooks/useSocket';
 import { useMain } from '../../hooks/useSlices';
 import { useDebounce } from '../../hooks/useDebounce';
 import { isEmpty } from 'lodash';
+import Header from '../header/Header';
 
-const MessageBox: FC<MessageBoxInterface> = ({ chatId }) => {
+const MessageBox: FC<MessageBoxInterface> = ({ currentChat }) => {
   const form = useForm();
   const [getMessagesQuery] = useLazyGetMessagesQuery();
   const [messages, setMessages] = useState<Array<MessageModel>>([]);
@@ -33,7 +34,7 @@ const MessageBox: FC<MessageBoxInterface> = ({ chatId }) => {
   const updateMessageCallback = (response: Record<string, unknown>) => {
     const message = response.data as MessageModel;
 
-    if (message.chat_id !== chatId) {
+    if (message.chat_id !== currentChat.id) {
       return;
     }
 
@@ -46,7 +47,7 @@ const MessageBox: FC<MessageBoxInterface> = ({ chatId }) => {
   });
 
   const sendMessage = () => {
-    emit({ chatId, text: form.getValues('message') });
+    emit({ chatId: currentChat?.id, text: form.getValues('message') });
     form.setValue('message', '');
     textInputRef.current?.focus();
   };
@@ -54,33 +55,44 @@ const MessageBox: FC<MessageBoxInterface> = ({ chatId }) => {
   useDebounce(() => scrollToBottom(), 300, [isEmpty(messages)]);
 
   useEffect(() => {
-    chatId
-      && getMessagesQuery({ id: chatId })
+    currentChat?.id
+      && getMessagesQuery({ id: currentChat?.id })
         .unwrap()
         .then((messages: Array<MessageModel>) => {
           setMessages(messages);
           scrollToBottom();
         });
-  }, [chatId]);
+  }, [currentChat?.id]);
 
   return (
-    <BaseView className={'h-[90vh]'}>
-      <BaseView className={'overflow-y-clip flex-grow'}>
-        <BaseView className={'overflow-y-scroll gap-4 flex-1'}>
-          {(messages || []).map((message, index) => {
-            if (index + 1 === messages.length) {
-              return <Message key={message.id} message={message} ref={lastMessageRef} />;
-            }
+    <>
+      <Header chat={currentChat} />
 
-            return <Message key={message.id} message={message} />;
-          })}
-        </BaseView>
-        <BaseView className={'flex flex-row gap-2 items-center'}>
-          <TextInput ref={textInputRef} className={'my-2'} form={form} name={'message'} />
-          <Button icon={{ icon: CUSTOM_ICON.SEND }} onClick={sendMessage} />
+      <BaseView className={'h-[90vh]'}>
+        <BaseView className={'overflow-y-clip flex-grow'}>
+          <BaseView className={'overflow-y-scroll gap-4 flex-1'}>
+            {(messages || []).map((message, index) => {
+              if (index + 1 === messages.length) {
+                return (
+                  <Message key={message.id} message={message} ref={lastMessageRef} />
+                );
+              }
+
+              return <Message key={message.id} message={message} />;
+            })}
+          </BaseView>
+          <BaseView className={'flex flex-row gap-2 items-center'}>
+            <TextInput
+              ref={textInputRef}
+              className={'my-2'}
+              form={form}
+              name={'message'}
+            />
+            <Button icon={{ icon: CUSTOM_ICON.SEND }} onClick={sendMessage} />
+          </BaseView>
         </BaseView>
       </BaseView>
-    </BaseView>
+    </>
   );
 };
 

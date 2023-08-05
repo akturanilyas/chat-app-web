@@ -66,8 +66,6 @@ const ChatList: FC<ChatListProps> = ({ onListItemClicked, chatId }) => {
     };
   }, []);
 
-  console.log(chatId);
-
   return (
     <BaseView className={chatListClasses}>
       <BaseView className={'w-full'}>
@@ -107,7 +105,7 @@ const ChatList: FC<ChatListProps> = ({ onListItemClicked, chatId }) => {
               key={chat.id}
               className={chat.id === chatId ? 'bg-blue-primary' : ''}
               chat={chat}
-              onClick={onListItemClicked}
+              onClick={() => onListItemClicked(chat)}
             />
           ))}
         </BaseView>

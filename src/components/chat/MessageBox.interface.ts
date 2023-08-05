@@ -1,3 +1,5 @@
+import { Chat } from '../../types/chat';
+
 export interface MessageBoxInterface {
-  chatId: string;
+  currentChat: Chat;
 }

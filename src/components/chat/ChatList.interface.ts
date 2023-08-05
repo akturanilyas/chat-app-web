@@ -1,4 +1,6 @@
+import { Chat } from '../../types/chat';
+
 export interface ChatListProps {
-  onListItemClicked: (id: string) => void;
+  onListItemClicked: (chat: Chat) => void;
   chatId: string | undefined;
 }

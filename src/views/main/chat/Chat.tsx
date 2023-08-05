@@ -1,26 +1,23 @@
 import React, { FC, useState } from 'react';
 import BaseView from '../../../components/common/base-view/BaseView';
 import ChatList from '../../../components/chat/ChatList';
-import Header from '../../../components/header/Header';
 import MessageBox from '../../../components/chat/MessageBox';
 import BaseText from '../../../components/common/base-text/BaseText';
+import { Chat as ChatModel } from '../../../types/chat';
 
 const Chat: FC = () => {
-  const [chatId, setChatId] = useState<string>();
+  const [chat, setChat] = useState<ChatModel>();
 
-  const onChatItemClicked = (id: string) => {
-    setChatId(id);
+  const onChatItemClicked = (chat: ChatModel) => {
+    setChat(chat);
   };
-
-  console.log(chatId);
 
   return (
     <BaseView className={'flex-row w-full'}>
-      <ChatList onListItemClicked={onChatItemClicked} chatId={chatId} />
+      <ChatList onListItemClicked={onChatItemClicked} chatId={chat?.id} />
       <BaseView className={'w-full flex-1 min-h-screen min-w-0 relative'}>
-        <Header />
-        {chatId ? (
-          <MessageBox chatId={chatId} />
+        {chat ? (
+          <MessageBox currentChat={chat} />
         ) : (
           <BaseView className={'items-center justify-center h-full align-middle'}>
             <BaseText text={'GLOBAL.FORM_ELEMENTS.LABELS.SELECT_ANY_CHAT'} />
