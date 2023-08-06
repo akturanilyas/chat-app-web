@@ -10,16 +10,16 @@ const ChatItem: FC<ChatItemProps> = (props) => {
   const { chat, onClick, className } = props;
 
   const classes = twMerge(`
-  p-8 rounded
+  p-4 rounded
   ${className}
   `);
 
   return (
     <BaseView className={classes}>
       <BaseView className={'flex flex-row'} onClick={() => onClick(chat.id)}>
-        <ImageView image={chat.target.image} className={'w-16 h-16'} />
+        <ImageView image={chat.target.image} className={'w-16 h-16 justify-center'} />
 
-        <BaseView className={'w-full px-2 overflow-x-hidden'}>
+        <BaseView className={'w-full px-2 overflow-x-hidden justify-center'}>
           <BaseView className={'flex-row justify-between items-center'}>
             <BaseText text={chat.target.name} className={'font-bold'} />
             <TimeText text={chat.time} className={'font-bold'} />

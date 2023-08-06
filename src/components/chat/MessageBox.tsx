@@ -91,10 +91,11 @@ const MessageBox: FC<MessageBoxInterface> = ({ currentChat }) => {
               );
             })}
           </BaseView>
-          <BaseView className={'flex flex-row'}>
+          <BaseView className={'flex flex-row px-14'}>
             <TextInput
               ref={textInputRef}
               form={form}
+              placeholder={'Write a message...'}
               name={'message'}
               suffix={
                 <TextButton
