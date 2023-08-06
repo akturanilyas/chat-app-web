@@ -4,6 +4,7 @@ import ChatList from '../../../components/chat/ChatList';
 import MessageBox from '../../../components/chat/MessageBox';
 import BaseText from '../../../components/common/base-text/BaseText';
 import { Chat as ChatModel } from '../../../types/chat';
+import Header from '../../../components/header/Header';
 
 const Chat: FC = () => {
   const [chat, setChat] = useState<ChatModel>();
@@ -16,6 +17,8 @@ const Chat: FC = () => {
     <BaseView className={'flex-row w-full'}>
       <ChatList onListItemClicked={onChatItemClicked} chatId={chat?.id} />
       <BaseView className={'w-full flex-1 min-h-screen min-w-0 relative'}>
+        <Header chat={chat} />
+
         {chat ? (
           <MessageBox currentChat={chat} />
         ) : (

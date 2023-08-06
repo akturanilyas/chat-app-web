@@ -31,7 +31,7 @@ const Header: FC<HeaderProps> = ({ chat }) => {
 
   return (
     <BaseView className={headerClasses}>
-      <BaseView className={'flex-row flex-1 items-center'}>
+      <BaseView className={'flex-row flex-1 items-center h-24'}>
         <BaseView className={'flex flex-1 flex-row items-center gap-4'}>
           {chat && <ImageView image={chat.target.image} className={'w-12 h-12'} />}
           {chat && <BaseText className={'font-bold text-slate-400'} text={chat.target.name} />}

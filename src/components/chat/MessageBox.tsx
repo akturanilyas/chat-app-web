@@ -65,8 +65,6 @@ const MessageBox: FC<MessageBoxInterface> = ({ currentChat }) => {
 
   return (
     <BaseView className={'relative'}>
-      <Header chat={currentChat} />
-
       <BaseView className={'bg-grey-200 '}>
         <BaseView className={'overflow-y-clip h-[calc(100vh_-_96px)]'}>
           <BaseView className={'overflow-y-scroll gap-4 flex-1 pt-4'}>
