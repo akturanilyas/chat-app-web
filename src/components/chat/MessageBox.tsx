@@ -10,7 +10,6 @@ import { useSocket } from '../../hooks/useSocket';
 import { useMain } from '../../hooks/useSlices';
 import { useDebounce } from '../../hooks/useDebounce';
 import { isEmpty } from 'lodash';
-import Header from '../header/Header';
 import { CUSTOM_ICON } from '../../constants/customIcon.constant';
 import TextButton from '../common/button/TextButton';
 
@@ -71,22 +70,11 @@ const MessageBox: FC<MessageBoxInterface> = ({ currentChat }) => {
             {(messages || []).map((message, index) => {
               if (index + 1 === messages.length) {
                 return (
-                  <Message
-                    key={message.id}
-                    message={message}
-                    ref={lastMessageRef}
-                    previousMessage={messages[index + 1]}
-                  />
+                  <Message key={message.id} message={message} ref={lastMessageRef} />
                 );
               }
 
-              return (
-                <Message
-                  key={message.id}
-                  message={message}
-                  previousMessage={messages[index - 1]}
-                />
-              );
+              return <Message key={message.id} message={message} />;
             })}
           </BaseView>
           <BaseView className={'flex flex-row px-14'}>
@@ -98,7 +86,10 @@ const MessageBox: FC<MessageBoxInterface> = ({ currentChat }) => {
               suffix={
                 <TextButton
                   className={'bg-transparent'}
-                  icon={{ icon: CUSTOM_ICON.SEND, iconClassName: 'fill-blue-primary text-blue-primary' }}
+                  icon={{
+                    icon: CUSTOM_ICON.SEND,
+                    iconClassName: 'fill-blue-primary text-blue-primary',
+                  }}
                   onClick={sendMessage}
                 />
               }

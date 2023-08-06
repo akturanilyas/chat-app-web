@@ -1,14 +1,13 @@
 import React, { FC, ForwardedRef, forwardRef } from 'react';
 import BaseView from '../common/base-view/BaseView';
 import BaseText from '../common/base-text/BaseText';
-import ImageView from '../common/base-image/ImageView';
 import TimeText from '../common/time-text/TimeText';
 import { MessageProps } from './Message.interface';
 import { useMain } from '../../hooks/useSlices';
 
 const Message: FC<MessageProps> = forwardRef(
   (props: MessageProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const { message, previousMessage } = props;
+    const { message } = props;
     const { user } = useMain();
 
     const classes = 'flex flex-row w-1/2 mx-4';
@@ -30,7 +29,12 @@ const Message: FC<MessageProps> = forwardRef(
                }`}
           >
             <BaseView className={'flex flex-row gap-4 items-center mx-4 my-2'}>
-              <BaseText text={message.sender.name} className={`font-bold ${isMyMessage ? 'text-slate-200' : 'text-slate-400'}`} />
+              <BaseText
+                text={message.sender.name}
+                className={`font-bold ${
+                  isMyMessage ? 'text-slate-200' : 'text-slate-400'
+                }`}
+              />
             </BaseView>
 
             <BaseView className={'flex-row mx-4 pb-2'}>
@@ -47,15 +51,6 @@ const Message: FC<MessageProps> = forwardRef(
             </BaseView>
           </BaseView>
         </BaseView>
-
-        {user?.id !== previousMessage?.sender.id && (
-          <BaseView className={'-mt-2'}>
-            <ImageView
-              image={'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'}
-              className={'max-w-[48px]'}
-            />
-          </BaseView>
-        )}
       </BaseView>
     );
   },
