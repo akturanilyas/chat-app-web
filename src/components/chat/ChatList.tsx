@@ -105,6 +105,7 @@ const ChatList: FC<ChatListProps> = ({ onListItemClicked, chatId }) => {
               key={chat.id}
               className={chat.id === chatId ? 'bg-blue-primary' : ''}
               chat={chat}
+              currentChatId={chatId}
               onClick={() => onListItemClicked(chat)}
             />
           ))}

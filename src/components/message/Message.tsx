@@ -37,7 +37,7 @@ const Message: FC<MessageProps> = forwardRef(
               />
             </BaseView>
 
-            <BaseView className={'flex-row mx-4 pb-2'}>
+            <BaseView className={'flex-row mx-4 pb-2'} style={{ direction: 'ltr' }}>
               <BaseText
                 text={message.text}
                 className={`font-medium text-sm ${

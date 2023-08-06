@@ -4,4 +4,5 @@ export interface ChatItemProps {
   chat: Chat;
   onClick: (id: string) => void;
   className?: string;
+  currentChatId: string | undefined;
 }

@@ -7,7 +7,9 @@ export type Chat = {
   user_id: string;
   target_id: string;
   target_type: string;
-  message: string;
-  time: string;
+  message?: {
+    text: string;
+    time: string;
+  };
   image: string;
 };
