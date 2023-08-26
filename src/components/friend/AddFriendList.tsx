@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import { AddFriendListProps } from './AddFriendList.interface';
 import BaseView from '../common/base-view/BaseView';
 import AddFriendItem from './AddFriendItem';
+import { useDebounce } from '../../hooks/useDebounce';
 import {
   useLazySearchUserQuery,
   useSearchUserQuery,
 } from '../../api/services/user/userService';
-import { useDebounce } from '../../hooks/useDebounce';
 
 const AddFriendList: FC<AddFriendListProps> = ({ search }) => {
   const { data: users } = useSearchUserQuery({});

@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import BaseView from '../common/base-view/BaseView';
 import { HeaderProps } from './Header.interface';
 import BaseButton from '../common/base-button/BaseButton';
@@ -8,10 +8,13 @@ import { ModalName } from '../../enums/modalName.enum';
 import BaseText from '../common/base-text/BaseText';
 import { useFriendRequestsQuery } from '../../api/services/friend/friendService';
 import ImageView from '../common/base-image/ImageView';
+import { useAppDispatch } from '../../hooks/useRedux';
+import { setUser } from '../../redux/slices/mainSlice';
 
 const Header: FC<HeaderProps> = ({ chat }) => {
   const { openModal } = useModalDispatcher();
   const { data: requests } = useFriendRequestsQuery({});
+  const dispatch = useAppDispatch();
 
   const headerClasses = `
     flex-row
@@ -34,7 +37,9 @@ const Header: FC<HeaderProps> = ({ chat }) => {
       <BaseView className={'flex-row flex-1 items-center h-24'}>
         <BaseView className={'flex flex-1 flex-row items-center gap-4'}>
           {chat && <ImageView image={chat.target.image} className={'w-12 h-12'} />}
-          {chat && <BaseText className={'font-bold text-slate-400'} text={chat.target.name} />}
+          {chat && (
+            <BaseText className={'font-bold text-slate-400'} text={chat.target.name} />
+          )}
         </BaseView>
         <BaseView className={'flex-row h-full items-center gap-2'}>
           <BaseButton
@@ -69,6 +74,11 @@ const Header: FC<HeaderProps> = ({ chat }) => {
               </BaseView>
             )}
           </BaseView>
+          <BaseButton
+            icon={{ icon: CUSTOM_ICON.X, iconClassName: 'text-error', customSize: 32 }}
+            className={'bg-transparent'}
+            onClick={() => dispatch(setUser(undefined))}
+          />
         </BaseView>
       </BaseView>
     </BaseView>
